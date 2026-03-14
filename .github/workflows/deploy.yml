@@ -17,10 +17,10 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
+          username: ec2-user
           key: ${{ secrets.EC2_KEY }}
           script: |
-            cd app
+            cd /home/ec2-user/app
             git pull
             npm install
             pm2 restart app
